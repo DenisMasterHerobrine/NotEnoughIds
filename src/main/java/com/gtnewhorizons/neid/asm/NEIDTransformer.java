@@ -24,9 +24,14 @@ public class NEIDTransformer implements IClassTransformer {
     private static final Logger logger = LogManager.getLogger("NEID");
 
     public byte[] transform(final String name, final String transformedName, final byte[] bytes) {
+        if (1 == 1) {
+            return null;
+        }
+
         if (bytes == null) {
             return null;
         }
+
         final ClassNodeTransformers transformer = ClassNodeTransformers.get(transformedName);
         if (transformer == null) {
             return bytes;
@@ -60,9 +65,14 @@ public class NEIDTransformer implements IClassTransformer {
     private File outputDir = null;
 
     private void saveTransformedClass(final byte[] data, final String transformedName) {
+        if (1 == 1) {
+            return;
+        }
+
         if (!DUMP_CLASSES) {
             return;
         }
+
         if (outputDir == null) {
             outputDir = new File(Launch.minecraftHome, "ASM_NEID");
             try {

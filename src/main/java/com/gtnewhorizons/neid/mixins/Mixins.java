@@ -48,12 +48,13 @@ public enum Mixins {
     private final Side side;
 
     Mixins(Builder builder) {
-        this.mixinClasses = builder.mixinClasses;
-        this.targetedMods = builder.targetedMods;
-        this.excludedMods = builder.excludedMods;
-        this.applyIf = builder.applyIf;
-        this.phase = builder.phase;
-        this.side = builder.side;
+        // Do not load mixins, please, ever.
+        this.mixinClasses = null;
+        this.targetedMods = null;
+        this.excludedMods = null;
+        this.applyIf = null;
+        this.phase = null;
+        this.side = null;
         if (this.mixinClasses.isEmpty()) {
             throw new RuntimeException("No mixin class specified for Mixin : " + this.name());
         }

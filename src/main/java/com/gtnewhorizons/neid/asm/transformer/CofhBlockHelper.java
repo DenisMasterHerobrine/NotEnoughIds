@@ -15,6 +15,10 @@ public class CofhBlockHelper implements IClassNodeTransformer {
 
     @Override
     public void transform(final ClassNode cn, final boolean obfuscated) {
+        if (1 == 1) {
+            return;
+        }
+
         final MethodNode method = AsmUtil.findMethod(cn, "<clinit>");
         if (!AsmUtil.modifyIntConstantInMethod(method, 4096, 32768, true)) {
             AsmUtil.modifyIntConstantInMethod(method, 1024, 32768);

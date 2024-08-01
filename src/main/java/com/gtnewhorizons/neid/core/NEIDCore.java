@@ -5,8 +5,6 @@ import java.util.Map;
 import java.util.Set;
 
 import com.gtnewhorizon.gtnhmixins.IEarlyMixinLoader;
-import com.gtnewhorizons.neid.asm.NEIDTransformer;
-import com.gtnewhorizons.neid.mixins.Mixins;
 
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
@@ -19,17 +17,17 @@ public class NEIDCore implements IFMLLoadingPlugin, IEarlyMixinLoader {
 
     @Override
     public String getMixinConfig() {
-        return "mixins.neid.early.json";
+        return null;
     }
 
     @Override
     public List<String> getMixins(Set<String> loadedCoreMods) {
-        return Mixins.getEarlyMixins(loadedCoreMods);
+        return null;
     }
 
     @Override
     public String[] getASMTransformerClass() {
-        return new String[] { NEIDTransformer.class.getName() };
+        return null;
     }
 
     @Override
@@ -44,7 +42,7 @@ public class NEIDCore implements IFMLLoadingPlugin, IEarlyMixinLoader {
 
     @Override
     public void injectData(Map<String, Object> data) {
-        isObfuscated = (boolean) data.get("runtimeDeobfuscationEnabled");
+        isObfuscated = false;
     }
 
     @Override
@@ -53,6 +51,6 @@ public class NEIDCore implements IFMLLoadingPlugin, IEarlyMixinLoader {
     }
 
     public static boolean isObfuscated() {
-        return isObfuscated;
+        return false;
     }
 }
